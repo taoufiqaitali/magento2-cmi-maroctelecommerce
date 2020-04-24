@@ -1,8 +1,10 @@
 # Magento 2 CMI Payments
 
-Developer: cmi
-Website: http://cmi.co.ma
-Contact: <mailto:integration.ecom@cmi.co.ma>
+Based on the original module, this version work in magento 2.3 with some extra features and bug fix
+
+* Developer: Taoufiq Ait Ali
+* Website: http://asktaw.com
+* Contact: <mailto:contact@asktaw.com>
 
 
 ### Manual Installation
