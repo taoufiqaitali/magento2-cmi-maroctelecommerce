@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="payment">
+            <group id="cmiecom" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Moroccan bank CMI </label>
+                <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Activer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Titre</label>
+                </field>
+                <field id="ClientId" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Identifiant marchand (ClientId)</label>
+                </field>
+                <field id="Secretkey" translate="label" type="password" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Clé de hachage</label>
+                </field>
+                <field id="Actionslk" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>URL Gateway de paiement</label>
+                </field>
+				<field id="callback_mode" translate="label" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="0">
+				   <label>Callback Mode</label>        
+				   <source_model>cmi\cmiecom\Model\Config\Source\CallbackMode</source_model>
+				</field>
+                <field id="apigateway" translate="label" type="text" sortOrder="91" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>API URL Gateway</label>
+                </field>
+                <field id="usernameapi" translate="label" type="text" sortOrder="92" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Username API</label>
+                </field>
+                <field id="passwordapi" translate="label" type="password" sortOrder="93" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Password API</label>
+                </field>
+                <field id="confirmation_mode" translate="label" type="select" sortOrder="94" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Confirmation Mode</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="auto_redirect" translate="label" type="select" sortOrder="95" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Auto Redirect to website</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                
+                <field id="order_status" translate="label" type="select" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Status d'une nouvelle commande</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status\Newprocessing</source_model>
+                </field>
+                <field id="mantener_carrito" translate="label" type="select" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Garder le panier sur les commandes annulé </label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="allowspecific" translate="label" type="allowspecific" sortOrder="180" showInDefault="9" showInWebsite="1" showInStore="0">
+                    <label>Paiement des pays concernés</label>
+                    <source_model>Magento\Payment\Model\Config\Source\Allspecificcountries</source_model>
+                </field>
+                <field id="specificcountry" translate="label" type="multiselect" sortOrder="190" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Paiement de pays spécifiques</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                </field>
+                <field id="sort_order" translate="label" type="text" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Ordre de tri</label>
+                    <frontend_class>validate-number</frontend_class>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

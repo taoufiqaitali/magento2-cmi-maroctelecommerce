@@ -1,0 +1,20 @@
+{
+    "name": "cmi/cmiecom",
+    "description": "CMI payment gateway Magento 2 Extension",
+    "type": "magento2-module",            
+    "authors": [
+        {
+            "name": "Taoufiq Ait Ali",
+            "email": "tsdi.23a@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "cmi\\cmiecom\\": ""
+        }
+    }
+}
