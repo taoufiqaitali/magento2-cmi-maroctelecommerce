@@ -9,12 +9,16 @@ class Success extends \cmi\cmiecom\Controller\Index
 
     public function execute()
     {
-    $params_request = $this->getRequest()->getParams();
+	$params_request = $this->getRequest()->getParams();
 	$order_id = $params_request["oid"];	
-	 $order = $this->getOrderFactory()->create()->loadByIncrementId($order_id);
-	$this->getCheckoutSession()->setLastSuccessQuoteId($order->getQouteId());
-	$this->getCheckoutSession()->setLastQuoteId($order->getQouteId());
-	$this->getCheckoutSession()->setLastOrderId($order->getEntityId());
+	$order = $this->getOrderFactory()->create()->loadByIncrementId($order_id);
+	
+	$this->getCheckoutSession()->setLastOrderId($order->getId());
+	$this->getCheckoutSession()->setLastRealOrderId($order->getIncrementId());
+	$this->getCheckoutSession()->setLastOrderStatus($order->getStatus());	
+
+	$this->messageManager->addSuccessMessage('Your order has been successfully created!');
+            
 	$result_redirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
 	$result_redirect->setUrl($this->getStoreManager()->getStore()->getBaseUrl() . 'checkout/onepage/success');
 	$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
@@ -25,13 +29,3 @@ class Success extends \cmi\cmiecom\Controller\Index
 }
 
 
-
-/*$this->checkoutSession->getLastSuccessQuoteId()
-$this->checkoutSession->getLastQuoteId()
-this->checkoutSession->getLastOrderId()
-
-
-
-$this->checkoutSession->setLastSuccessQuoteId(order->getQouteId())
-$this->checkoutSession->setLastQuoteId(order->getQouteId())
-this->checkoutSession->setLastOrderId(order->getEntityId())*/
