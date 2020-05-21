@@ -56,7 +56,7 @@ class Index extends \cmi\cmiecom\Controller\Index
             $transaction_amount = number_format($price_converted, 2, ',', '');
 
             $amountCur = number_format($_order->getGrandTotal(), 2, ',', '');
-            $symbolCur = $baseCurrencyCode;
+            $symbolCur = $storeManager->getStore()->getCurrentCurrencyCode();
 
             $numpedido = str_pad($order_id, 12, "0", STR_PAD_LEFT);
             $cantidad = (float) $transaction_amount;
