@@ -382,21 +382,21 @@ class Notify extends \Magento\Framework\App\Action\Action implements CsrfAwareAc
                         $invoice->getOrder()
                     );
                     $transaction_save->save();
-                    $this->getInvoiceSender()->send($invoice);
+                    //$this->getInvoiceSender()->send($invoice);
                     //send notification code
                     
-                    $order->addStatusHistoryComment(
+                    /*$order->addStatusHistoryComment(
                             __('Notified customer about invoice #%1.', $invoice->getId())
                         )
                         ->setIsCustomerNotified(true)
-                        ->save();
+                        ->save();*/
                     
 
-					if(isset($orderStatus) && $orderStatus){
+					/*if(isset($orderStatus) && $orderStatus){
 						$this->changeStatusOrder($order, $orderStatus, $orderStatus, NULL);
 					} else {
 						$this->changeStatusOrder($order, 'processing', 'processing', NULL);
-					}
+					}*/
                     
                     $this->addTransaction($order, $this->getUtilities()->getParameters());
                     $this->deactiveCart($order);
